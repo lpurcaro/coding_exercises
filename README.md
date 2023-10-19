@@ -96,5 +96,5 @@ Run `node index.js` from the root directory of the project to execute resolution
 3. The `notifyByEmail` function adds the current timestamp to the errors array, then filters the elements to get only the values that are in the one minute window.
 4. If the filtered amount is bigger that ten, we have to notify by email. So we compare current timestamp with the timestamp of the last sent email in `emailNotificationTimestamp`
 5. If the comparition is bigger that one minute we send the email
-6. If the comparition is smaller than one minute we set `pendingNofitication` to `true` and set a timeout to send the email when the minute is complete.
+6. If the comparition is smaller than one minute and there isn't a `pendingNotification` we set that value to `true` and set a timeout to send the email when the minute is complete.
 7. Everytime the email is sent the `pendingNofitication` is set to `false` again and the `emailNotificationTimestamp` updated to the current moment.
