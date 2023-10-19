@@ -1,0 +1,7 @@
+const EMAIL_NOTIFICATION_FREQUENCY = 60; // seconds
+const MAX_ERRORS_ALLOWED = 10;
+
+module.exports = {
+    EMAIL_NOTIFICATION_FREQUENCY,
+    MAX_ERRORS_ALLOWED
+}
