@@ -14,6 +14,10 @@ function parseUrl (format, instance) {
     const [, ...params] = pathname.split(/\//);
     const [, ...variables] = format.split(/\//);
 
+    const formattedQuery = Object.keys(query).reduce((prev, next) => { 
+        return { ...prev, [next]: parseValue(query[next])}
+    }, {});
+
     const mappedUrl = variables.reduce((mappedObj, variable, idx) => {
         const newParam = {};
         
@@ -23,7 +27,7 @@ function parseUrl (format, instance) {
         }
 
         return { ...mappedObj, ...newParam};
-    }, query);
+    }, formattedQuery);
 
     return mappedUrl;
 
